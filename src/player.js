@@ -5,8 +5,61 @@ class Player {
     this.wins = 0
     this.playerId = Date.now
   }
-  takeTurn(selectedOption) {
-  alert("this works!")
-  // The listening event for this will be when the human clikcs one of the options. once clicked, this function will randomize the outcome for the computer and a winner/loser will be declared and updated in the data model. 
+  takeTurn(event) {
+    var playerChoice = null
+    console.log(event.target.id)
+    //determine computer choice
+    var randomInteger = Math.floor(Math.random() * classicOptionsArray.length)
+    var computerChoice = classicOptionsArray[randomInteger]
+    
+    //determine player choice
+    if (event.target.id === "classic-rock") {
+      playerChoice = "rock"
+      classicPaper.classList.add('hidden')
+      classicScissors.classList.add('hidden')
+    } else if (event.target.id === "classic-paper") {
+      playerChoice = "paper"
+      classicRock.classList.add('hidden')
+      classicScissors.classList.add('hidden')
+    } else if (event.target.id === "classic-scissors") {
+      playerChoice = "scissors"
+      classicRock.classList.add('hidden')
+      classicPaper.classList.add('hidden')
+    }
+
+      //display computer choice
+      if (computerChoice === "rock") {
+        classicRock.classList.remove('hidden')
+      } else if (computerChoice === "paper") {
+        classicPaper.classList.remove('hidden')
+      } else if (computerChoice === "scissors") {
+        classicScissors.classList.remove('hidden')
+      }
+    console.log("playerChoice", playerChoice)
+    console.log("computerChoice", computerChoice)
+
+    //determine winner 
+    if (playerChoice === "rock" && computerChoice === "scissors") {
+      newGame.player.wins += 1
+      middleDialogueBox.innerText = "Player wins!"
+    } else if (playerChoice === computerChoice) {
+      middleDialogueBox.innerText = "It's a draw!"
+    } else if (playerChoice === "paper" && computerChoice === "rock") {
+      newGame.player.wins += 1
+      middleDialogueBox.innerText = "Player wins!"
+    } else if (playerChoice === "scissors" && computerChoice === "rock") {
+      newGame.player.wins += 1
+      middleDialogueBox.innerText = "Player wins!"
+    } else {
+      newGame.computer.wins += 1
+      middleDialogueBox.innerText = "Computer wins!"
+    }
+    // update dom 
+    humanScore.innerText = newGame.player.wins
+    computerScore.innerText = newGame.computer.wins
+    winnerText.innerText = `Player: ${playerChoice} | Computer: ${computerChoice}`
+    setTimeout(startClassicGame, 1000)
   }
 }
+
+

@@ -18,6 +18,7 @@
   height: auto;
   width: 20%;
   align-items: center;
+  justify-content: center;
 }
 
 .left-header-container {
@@ -27,7 +28,6 @@
   align-items: center;
   text-shadow: -1px 0 #1ac0c6, 0 2px #1ac0c6, 2px 0 #1ac0c6, 0 -1px #1ac0c6;
   color: white;
-  margin-top: 60%;
 }
 
 .left-change-button-container {
@@ -88,6 +88,17 @@
   justify-content: center;
 
 }
+
+.middle-winner-text {
+  display: flex;
+  text-shadow: -1px 0 #1ac0c6, 0 2px #1ac0c6, 2px 0 #1ac0c6, 0 -1px #1ac0c6;
+  color: white;
+  font-size: 2rem;
+  width: 75%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
 .middle-HTML-container {
   display: flex;
   flex-direction: row;
@@ -120,9 +131,9 @@
   cursor:pointer;
 }
 h5 {
-  text-shadow: -1px 0 #fb7756, 0 2px #fb7756, 2px 0 #fb7756, 0 -1px #fb7756;
+  text-shadow: -1px 0 #fb7756, 0 3px #fb7756, 3px 0 #fb7756, 0 -1px #fb7756;
   color: white;
-  font-size: 1.75rem;
+  font-size: 1.95rem;
 }
 h6 {
   text-shadow: -1px 0 #fb7756, 0 2px #fb7756, 2px 0 #fb7756, 0 -1px #fb7756;
@@ -144,6 +155,7 @@ h6 {
   height: auto;
   width: 20%;
   align-items: center;
+  justify-content: center;
 }
 
 .right-header-container {
@@ -153,7 +165,7 @@ h6 {
   align-items: center;
   text-shadow: -1px 0 #1ac0c6, 0 2px #1ac0c6, 2px 0 #1ac0c6, 0 -1px #1ac0c6;
   color: white;
-  margin-top: 60%;
+  justify-content: center;
 }
 .computer-score-dynamic {
   margin-top: 10%;
