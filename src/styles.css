@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-size: 2rem;
+
+
+}
+
+/* Below find left container styling */
+.left-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #facd95;
+  height: auto;
+  width: 20%;
+  align-items: center;
+}
+
+.left-header-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: -1px 0 #1ac0c6, 0 2px #1ac0c6, 2px 0 #1ac0c6, 0 -1px #1ac0c6;
+  color: white;
+  margin-top: 60%;
+}
+
+.left-change-button-container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto
+}
+
+.change-button {
+  text-shadow: -1px 0 #1ac0c6, 0 2px #1ac0c6, 2px 0 #1ac0c6, 0 -1px #1ac0c6;
+  color: white;
+  background-color: #fb7756;
+  border: none;
+  font-size: 1rem;
+  padding: 7px;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.human-score-dynamic {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-shadow: -1px 0 #fb7756, 0 3px #fb7756, 3px 0 #fb7756, 0 -1px #fb7756;
+  color: white;
+  font-size: 4rem;
+}
+
+/* Below find middle container styling */
+.middle-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: #facd60;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.middle-header-container {
+  background-color: transparent;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10%;
+  margin-right: 10px;
+  margin-left: 10px;
+  text-shadow: -1px 0 #fb7756, 0 3px #fb7756, 3px 0 #fb7756, 0 -1px #fb7756;
+  color: white
+}
+.middle-dialogue-box {
+  display: flex;
+  text-shadow: -1px 0 #1ac0c6, 0 2px #1ac0c6, 2px 0 #1ac0c6, 0 -1px #1ac0c6;
+  color: white;
+  font-size: 2rem;
+  width: 75%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+
+}
+.middle-HTML-container {
+  display: flex;
+}
+
+/* Below find right container styling */
+.right-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #facd95;
+  height: auto;
+  width: 20%;
+  align-items: center;
+}
+
+.right-header-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: -1px 0 #1ac0c6, 0 2px #1ac0c6, 2px 0 #1ac0c6, 0 -1px #1ac0c6;
+  color: white;
+  margin-top: 60%;
+}
+.computer-score-dynamic {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-shadow: -1px 0 #fb7756, 0 3px #fb7756, 3px 0 #fb7756, 0 -1px #fb7756;
+  color: white;
+  font-size: 4rem;
+}
