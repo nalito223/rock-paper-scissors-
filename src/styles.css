@@ -46,6 +46,7 @@
   padding: 7px;
   margin-top: 10%;
   margin-bottom: 10%;
+  border-radius: 5px;
 }
 .change-button:hover {
   cursor:pointer;
@@ -70,7 +71,8 @@
 
 .middle-header-container {
   background-color: transparent;
-  /* justify-content: center; */
+  /* display: flex;
+  flex-direction: column; */
   margin-top: 10%;
   margin-right: 10px;
   margin-left: 10px;
@@ -114,6 +116,7 @@
   padding: 5px;
   border: #fb7756 2px solid;
   color: white;
+  border-radius: 5px;
 }
 .classic-button:hover {
   cursor:pointer;
@@ -126,6 +129,7 @@
   padding: 5px;
   border: #fb7756 2px solid;
   color: white;
+  border-radius: 5px;
 }
 .spicy-button:hover {
   cursor:pointer;
