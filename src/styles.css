@@ -147,9 +147,11 @@ h6 {
 .options {
   height: 10rem;
   width: 10rem;
+  transition: all .2s ease-in-out; 
 }
 .options:hover {
   cursor:pointer;
+  transform: scale(1.1);
 }
 /* Below find right container styling */
 .right-container {
@@ -177,6 +179,28 @@ h6 {
   text-shadow: -1px 0 #fb7756, 0 3px #fb7756, 3px 0 #fb7756, 0 -1px #fb7756;
   color: white;
   font-size: 4rem;
+}
+
+.right-reset-button-container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto
+}
+
+.reset-button {
+  text-shadow: -1px 0 #1ac0c6, 0 2px #1ac0c6, 2px 0 #1ac0c6, 0 -1px #1ac0c6;
+  color: white;
+  background-color: #fb7756;
+  border: none;
+  font-size: 1rem;
+  padding: 7px;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-radius: 5px;
+}
+.reset-button:hover {
+  cursor:pointer;
 }
 
 /* Below is general styling */
