@@ -207,3 +207,6 @@ h6 {
 .hidden {
   display: none; 
 }
+.disable {
+  pointer-events: none;  
+}

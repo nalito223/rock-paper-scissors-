@@ -32,7 +32,6 @@ var spicyOptionsArray = ["rock", "paper", "scissors", "alien", "lizard"]
 addEventListener('load', goToStartView)
 changeButton.addEventListener('click', goToStartView)
 resetButton.addEventListener('click', reloadPage)
-// addEventListener('load', instantiateGame)
 
 //functions
 function reloadPage() {
@@ -49,7 +48,6 @@ function goToStartView() {
   classicRock.classList.add('hidden')
   classicPaper.classList.add('hidden')
   classicScissors.classList.add('hidden')
-  // hide spicy options
   spicyPaper.classList.add('hidden')
   spicyScissors.classList.add('hidden')
   spicyLizard.classList.add('hidden')
@@ -60,6 +58,9 @@ function goToStartView() {
 }
 
 function startClassicGame() {
+  middleHTMLContainer.classList.remove('disable')
+  resetButton.disabled = false
+  changeButton.disabled = false
   winnerText.innerText = ""
   middleDialogueBox.innerText = "Choose your fighter!"
   changeButton.classList.remove('hidden')
@@ -75,6 +76,9 @@ function startClassicGame() {
 }
 
 function startSpicyGame() {
+  middleHTMLContainer.classList.remove('disable')
+  resetButton.disabled = false
+  changeButton.disabled = false
   winnerText.innerText = ""
   middleDialogueBox.innerText = "Choose your fighter!"
   changeButton.classList.remove('hidden')
@@ -91,4 +95,19 @@ function startSpicyGame() {
   spicyScissors.addEventListener('click', newGame.player.takeTurnSpicy)
   spicyLizard.addEventListener('click', newGame.player.takeTurnSpicy)
   spicyAlien.addEventListener('click', newGame.player.takeTurnSpicy)
+}
+
+function disableButtons(gameType) {
+  console.log(gameType)
+  if (gameType === "classic") {
+    middleHTMLContainer.classList.add('disable')
+    resetButton.disabled = true
+    changeButton.disabled = true
+    setTimeout(startClassicGame, 2200)
+  } else if (gameType === "spicy") {
+    middleHTMLContainer.classList.add('disable')
+    resetButton.disabled = true
+    changeButton.disabled = true
+    setTimeout(startSpicyGame, 2200)
+  }
 }

@@ -56,7 +56,9 @@ class Player {
     humanScore.innerText = newGame.player.wins
     computerScore.innerText = newGame.computer.wins
     winnerText.innerText = `Player: ${playerChoice} | Computer: ${computerChoice}`
-    setTimeout(startClassicGame, 2300)
+    // setTimeout(startClassicGame, 2200)
+
+    disableButtons("classic")
   }
 
   takeTurnSpicy(event) {
@@ -156,6 +158,8 @@ class Player {
     humanScore.innerText = newGame.player.wins
     computerScore.innerText = newGame.computer.wins
     winnerText.innerText = `Player: ${playerChoice} | Computer: ${computerChoice}`
-    setTimeout(startSpicyGame, 2300)
+    // changeButton.disabled = true 
+    // setTimeout(startSpicyGame, 2200)
+    disableButtons("spicy")
   }
 }
