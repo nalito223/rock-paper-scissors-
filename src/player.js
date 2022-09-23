@@ -3,11 +3,10 @@ class Player {
     this.name = name
     this.token = token
     this.wins = 0
-    this.playerId = Date.now
   }
   takeTurn(event) {
     var playerChoice = null
-    
+
     //determine computer choice
     var randomInteger = Math.floor(Math.random() * classicOptionsArray.length)
     var computerChoice = classicOptionsArray[randomInteger]
@@ -35,14 +34,14 @@ class Player {
     } else if (computerChoice === "scissors") {
       classicScissors.classList.remove('hidden')
     }
-   
 
-    //determine winner 
+    //determine winner and update data model 
     if (playerChoice === "rock" && computerChoice === "scissors") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
     } else if (playerChoice === computerChoice) {
       middleDialogueBox.innerText = "It's a draw!"
+      draw.classList.remove('hidden')
     } else if (playerChoice === "paper" && computerChoice === "rock") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
@@ -53,15 +52,16 @@ class Player {
       newGame.computer.wins += 1
       middleDialogueBox.innerText = "Computer wins!"
     }
+
     // update dom 
     humanScore.innerText = newGame.player.wins
     computerScore.innerText = newGame.computer.wins
     winnerText.innerText = `Player: ${playerChoice} | Computer: ${computerChoice}`
-    setTimeout(startClassicGame, 2000)
+    disableButtons("classic")
   }
+
   takeTurnSpicy(event) {
     var playerChoice = null
-
 
     //determine computer choice
     var randomInteger = Math.floor(Math.random() * spicyOptionsArray.length)
@@ -112,8 +112,6 @@ class Player {
     } else if (computerChoice === "alien") {
       spicyAlien.classList.remove("hidden")
     }
-    console.log("spicy playerChoice", playerChoice)
-    console.log("spicy computerChoice", computerChoice)
 
     //determine winner 
     if (playerChoice === "rock" && computerChoice === "scissors") {
@@ -121,13 +119,15 @@ class Player {
       middleDialogueBox.innerText = "Player wins!"
     } else if (playerChoice === computerChoice) {
       middleDialogueBox.innerText = "It's a draw!"
+      draw.classList.remove('hidden')
     } else if (playerChoice === "paper" && computerChoice === "rock") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
     } else if (playerChoice === "scissors" && computerChoice === "rock") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
-      // new spicy additions below
+
+      // new spicy conditions below
     } else if (playerChoice === "rock" && computerChoice === "lizard") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
@@ -137,7 +137,7 @@ class Player {
     } else if (playerChoice === "scissors" && computerChoice === "lizard") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
-    } else if (playerChoice  === "lizard" && computerChoice === "paper") {
+    } else if (playerChoice === "lizard" && computerChoice === "paper") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
     } else if (playerChoice === "lizard" && computerChoice === "alien") {
@@ -146,17 +146,18 @@ class Player {
     } else if (playerChoice === "alien" && computerChoice === "scissors") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
-    } else if (playerChoice === "alien" && computerChoice  === "rock") {
+    } else if (playerChoice === "alien" && computerChoice === "rock") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
     } else {
       newGame.computer.wins += 1
       middleDialogueBox.innerText = "Computer wins!"
     }
+  
     // update dom 
     humanScore.innerText = newGame.player.wins
     computerScore.innerText = newGame.computer.wins
     winnerText.innerText = `Player: ${playerChoice} | Computer: ${computerChoice}`
-    setTimeout(startSpicyGame, 2000)
+    disableButtons("spicy")
   }
 }
