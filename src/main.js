@@ -1,20 +1,20 @@
-// variables
+// instantiations 
 var newGame = new Game()
 
-//elements selectors 
+// element selectors 
 var middleDialogueBox = document.querySelector('.middle-dialogue-box')
 var middleHTMLContainer = document.querySelector('.middle-HTML-container')
 var humanScore = document.querySelector('.human-score-dynamic')
 var computerScore = document.querySelector('.computer-score-dynamic')
 var winnerText = document.querySelector('.middle-winner-text')
 
-//buttons selectors 
+// button selectors 
 var spicyButton = document.querySelector('.spicy-button')
 var classicButton = document.querySelector('.classic-button')
 var changeButton = document.querySelector('.change-button')
 var resetButton = document.querySelector('.reset-button')
 
-//options selectors
+//option selectors
 var classicRock = document.querySelector('.classic-rock-button')
 var classicPaper = document.querySelector('.classic-paper-button')
 var classicScissors = document.querySelector('.classic-scissors-button')
@@ -25,16 +25,16 @@ var spicyPaper = document.querySelector('.spicy-paper-button')
 var spicyScissors = document.querySelector('.spicy-scissors-button')
 var draw = document.querySelector('.draw')
 
-// variables for computer choice function 
+// arrays for computer choice function 
 var classicOptionsArray = ["rock", "paper", "scissors"]
 var spicyOptionsArray = ["rock", "paper", "scissors", "alien", "lizard"]
 
-// event listeners
+// global event listeners
 addEventListener('load', goToStartView)
 changeButton.addEventListener('click', goToStartView)
 resetButton.addEventListener('click', reloadPage)
 
-//functions
+// functions
 function reloadPage() {
   window.location.reload()
 }
@@ -102,7 +102,6 @@ function startSpicyGame() {
 }
 
 function disableButtons(gameType) {
-  console.log(gameType)
   if (gameType === "classic") {
     middleHTMLContainer.classList.add('disable')
     resetButton.disabled = true
