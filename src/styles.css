@@ -234,3 +234,7 @@ h6 {
 .disable {
   pointer-events: none;
 }
+
+.fade {
+  opacity: 0.5;
+}

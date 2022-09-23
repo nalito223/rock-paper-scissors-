@@ -60,6 +60,8 @@ function goToStartView() {
 }
 
 function startClassicGame() {
+  resetButton.classList.remove('fade')
+  changeButton.classList.remove('fade')
   middleHTMLContainer.classList.remove('disable')
   resetButton.disabled = false
   changeButton.disabled = false
@@ -79,6 +81,8 @@ function startClassicGame() {
 }
 
 function startSpicyGame() {
+  resetButton.classList.remove('fade')
+  changeButton.classList.remove('fade')
   middleHTMLContainer.classList.remove('disable')
   resetButton.disabled = false
   changeButton.disabled = false
@@ -106,11 +110,15 @@ function disableButtons(gameType) {
     middleHTMLContainer.classList.add('disable')
     resetButton.disabled = true
     changeButton.disabled = true
+    resetButton.classList.add('fade')
+    changeButton.classList.add('fade')
     setTimeout(startClassicGame, 2200)
   } else if (gameType === "spicy") {
     middleHTMLContainer.classList.add('disable')
     resetButton.disabled = true
     changeButton.disabled = true
+    resetButton.classList.add('fade')
+    changeButton.classList.add('fade')
     setTimeout(startSpicyGame, 2200)
   }
 }
