@@ -60,6 +60,13 @@
 }
 
 /* Below find middle container styling */
+.draw {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-shadow: -1px 0 #fb7756, 0 3px #fb7756, 3px 0 #fb7756, 0 -1px #fb7756;
+  color: white;
+  font-size: 4rem;
+}
 .middle-container {
   display: flex;
   flex-direction: column;

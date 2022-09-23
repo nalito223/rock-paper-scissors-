@@ -41,6 +41,7 @@ class Player {
       middleDialogueBox.innerText = "Player wins!"
     } else if (playerChoice === computerChoice) {
       middleDialogueBox.innerText = "It's a draw!"
+      draw.classList.remove('hidden')
     } else if (playerChoice === "paper" && computerChoice === "rock") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"
@@ -120,6 +121,7 @@ class Player {
       middleDialogueBox.innerText = "Player wins!"
     } else if (playerChoice === computerChoice) {
       middleDialogueBox.innerText = "It's a draw!"
+      draw.classList.remove('hidden')
     } else if (playerChoice === "paper" && computerChoice === "rock") {
       newGame.player.wins += 1
       middleDialogueBox.innerText = "Player wins!"

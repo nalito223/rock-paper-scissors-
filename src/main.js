@@ -23,6 +23,7 @@ var spicyAlien = document.querySelector('.spicy-alien-button')
 var spicyRock = document.querySelector('.spicy-rock-button')
 var spicyPaper = document.querySelector('.spicy-paper-button')
 var spicyScissors = document.querySelector('.spicy-scissors-button')
+var draw = document.querySelector('.draw')
 
 // variables for computer choice function 
 var classicOptionsArray = ["rock", "paper", "scissors"]
@@ -41,6 +42,7 @@ function reloadPage() {
 function goToStartView() {
   winnerText.innerText = ""
   middleDialogueBox.innerText = "Choose your game!"
+  draw.classList.add('hidden')
   changeButton.classList.add('hidden')
   resetButton.classList.add('hidden')
   classicButton.classList.remove('hidden')
@@ -63,6 +65,7 @@ function startClassicGame() {
   changeButton.disabled = false
   winnerText.innerText = ""
   middleDialogueBox.innerText = "Choose your fighter!"
+  draw.classList.add('hidden')
   changeButton.classList.remove('hidden')
   resetButton.classList.remove('hidden')
   classicButton.classList.add('hidden')
@@ -81,6 +84,7 @@ function startSpicyGame() {
   changeButton.disabled = false
   winnerText.innerText = ""
   middleDialogueBox.innerText = "Choose your fighter!"
+  draw.classList.add('hidden')
   changeButton.classList.remove('hidden')
   resetButton.classList.remove('hidden')
   classicButton.classList.add('hidden')
