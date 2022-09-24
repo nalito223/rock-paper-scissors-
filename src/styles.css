@@ -81,13 +81,16 @@
 
 .middle-header-container {
   background-color: transparent;
-  /* display: flex;
-  flex-direction: column; */
   margin-top: 10%;
   margin-right: 10px;
   margin-left: 10px;
   text-shadow: -1px 0 #fb7756, 0 3px #fb7756, 3px 0 #fb7756, 0 -1px #fb7756;
-  color: white
+  color: white;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; */
+  /* vertical-align: middle; */
 }
 
 .middle-dialogue-box {

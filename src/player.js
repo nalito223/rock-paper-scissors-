@@ -5,11 +5,12 @@ class Player {
     this.wins = 0
   }
   takeTurn(event) {
+    newGame.currentGameType = "classic"
     var playerChoice = null
 
     //determine computer choice
-    var randomInteger = Math.floor(Math.random() * classicOptionsArray.length)
-    var computerChoice = classicOptionsArray[randomInteger]
+    var randomInteger = Math.floor(Math.random() * newGame.classicOptionsArray.length)
+    var computerChoice = newGame.classicOptionsArray[randomInteger]
 
     //determine player choice
     if (event.target.id === "classic-rock") {
@@ -61,11 +62,12 @@ class Player {
   }
 
   takeTurnSpicy(event) {
+    newGame.currentGameType = "spicy"
     var playerChoice = null
 
     //determine computer choice
-    var randomInteger = Math.floor(Math.random() * spicyOptionsArray.length)
-    var computerChoice = spicyOptionsArray[randomInteger]
+    var randomInteger = Math.floor(Math.random() * newGame.spicyOptionsArray.length)
+    var computerChoice = newGame.spicyOptionsArray[randomInteger]
 
     //determine player choice
     if (event.target.id === "spicy-rock") {

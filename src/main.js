@@ -1,4 +1,4 @@
-// instantiations 
+// class instantiation 
 var newGame = new Game()
 
 // element selectors 
@@ -14,20 +14,18 @@ var classicButton = document.querySelector('.classic-button')
 var changeButton = document.querySelector('.change-button')
 var resetButton = document.querySelector('.reset-button')
 
-//option selectors
+// option selectors for classic version
 var classicRock = document.querySelector('.classic-rock-button')
 var classicPaper = document.querySelector('.classic-paper-button')
 var classicScissors = document.querySelector('.classic-scissors-button')
+var draw = document.querySelector('.draw')
+
+// option selectors for spicy version
 var spicyLizard = document.querySelector('.spicy-lizard-button')
 var spicyAlien = document.querySelector('.spicy-alien-button')
 var spicyRock = document.querySelector('.spicy-rock-button')
 var spicyPaper = document.querySelector('.spicy-paper-button')
 var spicyScissors = document.querySelector('.spicy-scissors-button')
-var draw = document.querySelector('.draw')
-
-// arrays for computer choice function 
-var classicOptionsArray = ["rock", "paper", "scissors"]
-var spicyOptionsArray = ["rock", "paper", "scissors", "alien", "lizard"]
 
 // global event listeners
 addEventListener('load', goToStartView)
@@ -68,10 +66,10 @@ function startClassicGame() {
   winnerText.innerText = ""
   middleDialogueBox.innerText = "Choose your fighter!"
   draw.classList.add('hidden')
+  spicyButton.classList.add('hidden')
+  classicButton.classList.add('hidden')
   changeButton.classList.remove('hidden')
   resetButton.classList.remove('hidden')
-  classicButton.classList.add('hidden')
-  spicyButton.classList.add('hidden')
   classicRock.classList.remove('hidden')
   classicPaper.classList.remove('hidden')
   classicScissors.classList.remove('hidden')
@@ -89,10 +87,10 @@ function startSpicyGame() {
   winnerText.innerText = ""
   middleDialogueBox.innerText = "Choose your fighter!"
   draw.classList.add('hidden')
-  changeButton.classList.remove('hidden')
-  resetButton.classList.remove('hidden')
   classicButton.classList.add('hidden')
   spicyButton.classList.add('hidden')
+  changeButton.classList.remove('hidden')
+  resetButton.classList.remove('hidden')
   spicyRock.classList.remove('hidden')
   spicyPaper.classList.remove('hidden')
   spicyScissors.classList.remove('hidden')
