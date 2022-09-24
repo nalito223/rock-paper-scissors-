@@ -103,15 +103,15 @@ function startSpicyGame() {
   spicyAlien.addEventListener('click', newGame.player.takeTurnSpicy)
 }
 
-function disableButtons(gameType) {
-  if (gameType === "classic") {
+function disableButtons() {
+  if (newGame.currentGameType === "classic") {
     middleHTMLContainer.classList.add('disable')
     resetButton.disabled = true
     changeButton.disabled = true
     resetButton.classList.add('fade')
     changeButton.classList.add('fade')
     setTimeout(startClassicGame, 2200)
-  } else if (gameType === "spicy") {
+  } else if (newGame.currentGameType === "spicy") {
     middleHTMLContainer.classList.add('disable')
     resetButton.disabled = true
     changeButton.disabled = true
@@ -119,4 +119,39 @@ function disableButtons(gameType) {
     changeButton.classList.add('fade')
     setTimeout(startSpicyGame, 2200)
   }
+}
+
+function updateDOMResults() {
+  middleDialogueBox.innerText = newGame.currentGameOutcome
+  humanScore.innerText = newGame.player.wins
+  computerScore.innerText = newGame.computer.wins
+  winnerText.innerText = `Player: ${newGame.player.currentChoice} | Computer: ${newGame.computer.currentChoice}`
+  disableButtons()
+}
+
+function displayPlayerChoiceClassic() {
+  if (newGame.player.currentChoice = "rock") {
+    classicPaper.classList.add('hidden')
+    classicScissors.classList.add('hidden')
+  } else if (newGame.player.currentChoice = "paper") {
+    classicRock.classList.add('hidden')
+    classicScissors.classList.add('hidden')
+  } else if (newGame.player.curentChoice = "scissors") {
+    classicRock.classList.add('hidden')
+    classicPaper.classList.add('hidden')
+  }
+}
+
+function displayComputerChoiceClassic() {
+  if (newGame.computer.currentChoice === "rock") {
+    classicRock.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "paper") {
+    classicPaper.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "scissors") {
+    classicScissors.classList.remove('hidden')
+  }
+}
+
+function displayDraw() {
+  draw.classList.remove('hidden')
 }
