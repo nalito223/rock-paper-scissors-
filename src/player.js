@@ -3,6 +3,7 @@ class Player {
     this.name = name
     this.token = token
     this.wins = 0
+    this.currentChoice
   }
   takeTurn(event) {
     newGame.currentGameType = "classic"
@@ -11,6 +12,7 @@ class Player {
     //determine computer choice
     var randomInteger = Math.floor(Math.random() * newGame.classicOptionsArray.length)
     var computerChoice = newGame.classicOptionsArray[randomInteger]
+    newGame.computer.currentChoice = computerChoice
 
     //determine player choice
     if (event.target.id === "classic-rock") {
@@ -26,6 +28,7 @@ class Player {
       classicRock.classList.add('hidden')
       classicPaper.classList.add('hidden')
     }
+    newGame.player.currentChoice = playerChoice
 
     //display computer choice
     if (computerChoice === "rock") {
@@ -39,21 +42,26 @@ class Player {
     //determine winner and update data model 
     if (playerChoice === "rock" && computerChoice === "scissors") {
       newGame.player.wins += 1
-      middleDialogueBox.innerText = "Player wins!"
+      newGame.currentGameOutcome = "Player wins!"
+      middleDialogueBox.innerText = newGame.currentGameOutcome
     } else if (playerChoice === computerChoice) {
-      middleDialogueBox.innerText = "It's a draw!"
+      newGame.currentGameOutcome = "It's a draw!"
+      middleDialogueBox.innerText = newGame.currentGameOutcome
       draw.classList.remove('hidden')
     } else if (playerChoice === "paper" && computerChoice === "rock") {
       newGame.player.wins += 1
-      middleDialogueBox.innerText = "Player wins!"
+      newGame.currentGameOutcome = "Player wins!"
+      middleDialogueBox.innerText = newGame.currentGameOutcome
     } else if (playerChoice === "scissors" && computerChoice === "rock") {
       newGame.player.wins += 1
-      middleDialogueBox.innerText = "Player wins!"
+      newGame.currentGameOutcome = "Player wins!"
+      middleDialogueBox.innerText = newGame.currentGameOutcome
     } else {
       newGame.computer.wins += 1
-      middleDialogueBox.innerText = "Computer wins!"
+      newGame.currentGameOutcome = "Computer wins!"
+      middleDialogueBox.innerText = newGame.currentGameOutcome
     }
-
+  
     // update dom 
     humanScore.innerText = newGame.player.wins
     computerScore.innerText = newGame.computer.wins
@@ -68,6 +76,7 @@ class Player {
     //determine computer choice
     var randomInteger = Math.floor(Math.random() * newGame.spicyOptionsArray.length)
     var computerChoice = newGame.spicyOptionsArray[randomInteger]
+    newGame.computer.currentChoice = computerChoice
 
     //determine player choice
     if (event.target.id === "spicy-rock") {
@@ -101,6 +110,7 @@ class Player {
       spicyAlien.classList.add('hidden')
       spicyScissors.classList.add('hidden')
     }
+    newGame.player.currentChoice = playerChoice
 
     //display computer choice
     if (computerChoice === "rock") {
