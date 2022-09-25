@@ -49,7 +49,6 @@ class Player {
 
   takeTurnSpicy(event) {
     newGame.currentGameType = "spicy"
-    var playerChoice = null
 
     //determine computer choice
     var randomInteger = Math.floor(Math.random() * newGame.spicyOptionsArray.length)
@@ -58,85 +57,53 @@ class Player {
 
     //determine player choice
     if (event.target.id === "spicy-rock") {
-      playerChoice = "rock"
-      spicyPaper.classList.add('hidden')
-      spicyScissors.classList.add('hidden')
-      spicyLizard.classList.add('hidden')
-      spicyAlien.classList.add('hidden')
+      newGame.player.currentChoice = "rock"
     } else if (event.target.id === "spicy-paper") {
-      playerChoice = "paper"
-      spicyRock.classList.add('hidden')
-      spicyScissors.classList.add('hidden')
-      spicyLizard.classList.add('hidden')
-      spicyAlien.classList.add('hidden')
+      newGame.player.currentChoice = "paper"
     } else if (event.target.id === "spicy-scissors") {
-      playerChoice = "scissors"
-      spicyRock.classList.add('hidden')
-      spicyPaper.classList.add('hidden')
-      spicyLizard.classList.add('hidden')
-      spicyAlien.classList.add('hidden')
+      newGame.player.currentChoice = "scissors"
     } else if (event.target.id === "spicy-alien") {
-      playerChoice = "alien"
-      spicyRock.classList.add('hidden')
-      spicyPaper.classList.add('hidden')
-      spicyLizard.classList.add('hidden')
-      spicyScissors.classList.add('hidden')
+      newGame.player.currentChoice = "alien"
     } else if (event.target.id === "spicy-lizard") {
-      playerChoice = "lizard"
-      spicyRock.classList.add('hidden')
-      spicyPaper.classList.add('hidden')
-      spicyAlien.classList.add('hidden')
-      spicyScissors.classList.add('hidden')
+      newGame.player.currentChoice = "lizard"
     }
-    newGame.player.currentChoice = playerChoice
 
-    //display computer choice
-    if (computerChoice === "rock") {
-      spicyRock.classList.remove('hidden')
-    } else if (computerChoice === "paper") {
-      spicyPaper.classList.remove('hidden')
-    } else if (computerChoice === "scissors") {
-      spicyScissors.classList.remove('hidden')
-    } else if (computerChoice === "lizard") {
-      spicyLizard.classList.remove('hidden')
-    } else if (computerChoice === "alien") {
-      spicyAlien.classList.remove("hidden")
-    }
+    displayPlayerChoiceSpicy()
+
+    displayComputerChoiceSpicy()
 
     //determine winner 
-    if (playerChoice === "rock" && computerChoice === "scissors") {
+    if (newGame.player.currentChoice === "rock" && newGame.computer.currentChoice === "scissors") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
-    } else if (playerChoice === computerChoice) {
+    } else if (newGame.player.currentChoice === newGame.computer.currentChoice) {
       newGame.currentGameOutcome = "It's a draw!"
-      draw.classList.remove('hidden')
-    } else if (playerChoice === "paper" && computerChoice === "rock") {
+      displayDraw()
+    } else if (newGame.player.currentChoice === "paper" && newGame.computer.currentChoice === "rock") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
-    } else if (playerChoice === "scissors" && computerChoice === "rock") {
+    } else if (newGame.player.currentChoice === "scissors" && newGame.computer.currentChoice === "rock") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
-
-      // new spicy conditions below
-    } else if (playerChoice === "rock" && computerChoice === "lizard") {
+    } else if (newGame.player.currentChoice === "rock" && newGame.computer.currentChoice === "lizard") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
-    } else if (playerChoice === "paper" && computerChoice === "alien") {
+    } else if (newGame.player.currentChoice === "paper" && newGame.computer.currentChoice === "alien") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
-    } else if (playerChoice === "scissors" && computerChoice === "lizard") {
+    } else if (newGame.player.currentChoice === "scissors" && newGame.computer.currentChoice === "lizard") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
-    } else if (playerChoice === "lizard" && computerChoice === "paper") {
+    } else if (newGame.player.currentChoice === "lizard" && newGame.computer.currentChoice === "paper") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
-    } else if (playerChoice === "lizard" && computerChoice === "alien") {
+    } else if (newGame.player.currentChoice === "lizard" && newGame.computer.currentChoice === "alien") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
-    } else if (playerChoice === "alien" && computerChoice === "scissors") {
+    } else if (newGame.player.currentChoice === "alien" && newGame.computer.currentChoice === "scissors") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
-    } else if (playerChoice === "alien" && computerChoice === "rock") {
+    } else if (newGame.player.currentChoice === "alien" && newGame.computer.currentChoice === "rock") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
     } else {

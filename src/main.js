@@ -155,3 +155,46 @@ function displayComputerChoiceClassic() {
 function displayDraw() {
   draw.classList.remove('hidden')
 }
+
+function displayPlayerChoiceSpicy() {
+  if (newGame.player.currentChoice = "rock") {
+    spicyPaper.classList.add('hidden')
+    spicyScissors.classList.add('hidden')
+    spicyLizard.classList.add('hidden')
+    spicyAlien.classList.add('hidden')
+  } else if (newGame.player.currentChoice = "paper") {
+    spicyRock.classList.add('hidden')
+    spicyScissors.classList.add('hidden')
+    spicyLizard.classList.add('hidden')
+    spicyAlien.classList.add('hidden')
+  } else if (newGame.player.currentChoice = "scissors") {
+    spicyRock.classList.add('hidden')
+    spicyPaper.classList.add('hidden')
+    spicyLizard.classList.add('hidden')
+    spicyAlien.classList.add('hidden')
+  } else if (newGame.player.currentChoice = "alien") {
+    spicyRock.classList.add('hidden')
+    spicyPaper.classList.add('hidden')
+    spicyLizard.classList.add('hidden')
+    spicyScissors.classList.add('hidden')
+  } else if (newGame.player.currentChoice = "lizard") {
+    spicyRock.classList.add('hidden')
+    spicyPaper.classList.add('hidden')
+    spicyAlien.classList.add('hidden')
+    spicyScissors.classList.add('hidden')
+  }
+}
+
+function displayComputerChoiceSpicy() {
+  if (newGame.computer.currentChoice === "rock") {
+    spicyRock.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "paper") {
+    spicyPaper.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "scissors") {
+    spicyScissors.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "lizard") {
+    spicyLizard.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "alien") {
+    spicyAlien.classList.remove("hidden")
+  }
+}
