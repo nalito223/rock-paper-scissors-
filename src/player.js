@@ -5,14 +5,9 @@ class Player {
     this.wins = 0
     this.currentChoice
   }
-  takeTurn(event) {
+  takeTurnClassic(event) {
     // update gameType in data model 
     newGame.currentGameType = "classic"
-
-    // determine computer choice and update data model 
-    var randomInteger = Math.floor(Math.random() * newGame.classicOptionsArray.length)
-    var computerChoice = newGame.classicOptionsArray[randomInteger]
-    newGame.computer.currentChoice = computerChoice
 
     // determine player choice and update data model 
     if (event.target.id === "classic-rock") {
@@ -20,12 +15,11 @@ class Player {
     } else if (event.target.id === "classic-paper") {
       newGame.player.currentChoice = "paper"
     } else if (event.target.id === "classic-scissors") {
-      newGame.player.curentChoice = "scissors"
+      newGame.player.currentChoice = "scissors"
     }
 
-    displayPlayerChoiceClassic()
-
-    displayComputerChoiceClassic()
+    // determine computer choice and update data model 
+    newGame.player.determineComputerChoiceClassic()
 
     //determine winner and update data model 
     if (newGame.player.currentChoice === "rock" && newGame.computer.currentChoice === "scissors") {
@@ -33,7 +27,6 @@ class Player {
       newGame.currentGameOutcome = "Player wins!"
     } else if (newGame.player.currentChoice === newGame.computer.currentChoice) {
       newGame.currentGameOutcome = "It's a draw!"
-      displayDraw()
     } else if (newGame.player.currentChoice === "paper" && newGame.computer.currentChoice === "rock") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
@@ -44,18 +37,22 @@ class Player {
       newGame.computer.wins += 1
       newGame.currentGameOutcome = "Computer wins!"
     }
+
+    // update DOM
+    displayDraw()
+    displayPlayerChoiceClassic()
+    displayComputerChoiceClassic()
     updateDOMResults()
   }
 
   takeTurnSpicy(event) {
+    // update gameType in data model 
     newGame.currentGameType = "spicy"
 
-    //determine computer choice
-    var randomInteger = Math.floor(Math.random() * newGame.spicyOptionsArray.length)
-    var computerChoice = newGame.spicyOptionsArray[randomInteger]
-    newGame.computer.currentChoice = computerChoice
+    // determine computer choice and update data model 
+    newGame.player.determineComputerChoiceSpicy()
 
-    //determine player choice
+    // determine player choice and update data model 
     if (event.target.id === "spicy-rock") {
       newGame.player.currentChoice = "rock"
     } else if (event.target.id === "spicy-paper") {
@@ -68,17 +65,12 @@ class Player {
       newGame.player.currentChoice = "lizard"
     }
 
-    displayPlayerChoiceSpicy()
-
-    displayComputerChoiceSpicy()
-
-    //determine winner 
+    //determine winner and update data model 
     if (newGame.player.currentChoice === "rock" && newGame.computer.currentChoice === "scissors") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
     } else if (newGame.player.currentChoice === newGame.computer.currentChoice) {
       newGame.currentGameOutcome = "It's a draw!"
-      displayDraw()
     } else if (newGame.player.currentChoice === "paper" && newGame.computer.currentChoice === "rock") {
       newGame.player.wins += 1
       newGame.currentGameOutcome = "Player wins!"
@@ -111,6 +103,22 @@ class Player {
       newGame.currentGameOutcome = "Computer wins!"
     }
 
+    // update DOM 
+    displayDraw()
+    displayPlayerChoiceSpicy()
+    displayComputerChoiceSpicy()
     updateDOMResults()
+  }
+
+  determineComputerChoiceClassic() {
+    var randomInteger = Math.floor(Math.random() * newGame.classicOptionsArray.length)
+    var computerChoice = newGame.classicOptionsArray[randomInteger]
+    newGame.computer.currentChoice = computerChoice
+  }
+
+  determineComputerChoiceSpicy() {
+    var randomInteger = Math.floor(Math.random() * newGame.spicyOptionsArray.length)
+    var computerChoice = newGame.spicyOptionsArray[randomInteger]
+    newGame.computer.currentChoice = computerChoice
   }
 }

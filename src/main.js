@@ -73,9 +73,9 @@ function startClassicGame() {
   classicRock.classList.remove('hidden')
   classicPaper.classList.remove('hidden')
   classicScissors.classList.remove('hidden')
-  classicRock.addEventListener('click', newGame.player.takeTurn)
-  classicPaper.addEventListener('click', newGame.player.takeTurn)
-  classicScissors.addEventListener('click', newGame.player.takeTurn)
+  classicRock.addEventListener('click', newGame.player.takeTurnClassic)
+  classicPaper.addEventListener('click', newGame.player.takeTurnClassic)
+  classicScissors.addEventListener('click', newGame.player.takeTurnClassic)
 }
 
 function startSpicyGame() {
@@ -130,13 +130,14 @@ function updateDOMResults() {
 }
 
 function displayPlayerChoiceClassic() {
-  if (newGame.player.currentChoice = "rock") {
+  console.log(newGame.player.currentChoice)
+  if (newGame.player.currentChoice === "rock") {
     classicPaper.classList.add('hidden')
     classicScissors.classList.add('hidden')
-  } else if (newGame.player.currentChoice = "paper") {
+  } else if (newGame.player.currentChoice === "paper") {
     classicRock.classList.add('hidden')
     classicScissors.classList.add('hidden')
-  } else if (newGame.player.curentChoice = "scissors") {
+  } else if (newGame.player.currentChoice === "scissors") {
     classicRock.classList.add('hidden')
     classicPaper.classList.add('hidden')
   }
@@ -153,31 +154,33 @@ function displayComputerChoiceClassic() {
 }
 
 function displayDraw() {
-  draw.classList.remove('hidden')
+  if (newGame.currentGameOutcome === "It's a draw!") {
+    draw.classList.remove('hidden')
+  }
 }
 
 function displayPlayerChoiceSpicy() {
-  if (newGame.player.currentChoice = "rock") {
+  if (newGame.player.currentChoice === "rock") {
     spicyPaper.classList.add('hidden')
     spicyScissors.classList.add('hidden')
     spicyLizard.classList.add('hidden')
     spicyAlien.classList.add('hidden')
-  } else if (newGame.player.currentChoice = "paper") {
+  } else if (newGame.player.currentChoice === "paper") {
     spicyRock.classList.add('hidden')
     spicyScissors.classList.add('hidden')
     spicyLizard.classList.add('hidden')
     spicyAlien.classList.add('hidden')
-  } else if (newGame.player.currentChoice = "scissors") {
+  } else if (newGame.player.currentChoice === "scissors") {
     spicyRock.classList.add('hidden')
     spicyPaper.classList.add('hidden')
     spicyLizard.classList.add('hidden')
     spicyAlien.classList.add('hidden')
-  } else if (newGame.player.currentChoice = "alien") {
+  } else if (newGame.player.currentChoice === "alien") {
     spicyRock.classList.add('hidden')
     spicyPaper.classList.add('hidden')
     spicyLizard.classList.add('hidden')
     spicyScissors.classList.add('hidden')
-  } else if (newGame.player.currentChoice = "lizard") {
+  } else if (newGame.player.currentChoice === "lizard") {
     spicyRock.classList.add('hidden')
     spicyPaper.classList.add('hidden')
     spicyAlien.classList.add('hidden')
