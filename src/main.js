@@ -130,7 +130,6 @@ function updateDOMResults() {
 }
 
 function displayPlayerChoiceClassic() {
-  console.log(newGame.player.currentChoice)
   if (newGame.player.currentChoice === "rock") {
     classicPaper.classList.add('hidden')
     classicScissors.classList.add('hidden')
