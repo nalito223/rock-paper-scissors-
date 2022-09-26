@@ -5,6 +5,6 @@ class Game {
     this.classicOptionsArray = ["rock", "paper", "scissors"]
     this.spicyOptionsArray = ["rock", "paper", "scissors", "alien", "lizard"]
     this.currentGameType
-    this.currentGameOutcome
+    this.currentGameOutcome 
   }
 }
