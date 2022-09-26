@@ -18,6 +18,7 @@ This app allows the user to play a classic version of rock, paper, scissors, and
 
 ### Preview of App:
 I would like to highlight the "Choose your fighter!" view of the spicy version. I used flex box to orient the UI and CSS transitions so the clickable images would expand on hover. 
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/110144802/192384642-5b018a49-ee9b-439a-adb1-6abbc64971f1.png">
 
 ### Context:
 This was our capstone individual project for the first module of the program. I spent a few hours a day for 3-4 days working on this project. 
