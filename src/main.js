@@ -1,4 +1,4 @@
-// instantiations 
+// class instantiation 
 var newGame = new Game()
 
 // element selectors 
@@ -14,20 +14,18 @@ var classicButton = document.querySelector('.classic-button')
 var changeButton = document.querySelector('.change-button')
 var resetButton = document.querySelector('.reset-button')
 
-//option selectors
+// option selectors for classic version
 var classicRock = document.querySelector('.classic-rock-button')
 var classicPaper = document.querySelector('.classic-paper-button')
 var classicScissors = document.querySelector('.classic-scissors-button')
+var draw = document.querySelector('.draw')
+
+// option selectors for spicy version
 var spicyLizard = document.querySelector('.spicy-lizard-button')
 var spicyAlien = document.querySelector('.spicy-alien-button')
 var spicyRock = document.querySelector('.spicy-rock-button')
 var spicyPaper = document.querySelector('.spicy-paper-button')
 var spicyScissors = document.querySelector('.spicy-scissors-button')
-var draw = document.querySelector('.draw')
-
-// arrays for computer choice function 
-var classicOptionsArray = ["rock", "paper", "scissors"]
-var spicyOptionsArray = ["rock", "paper", "scissors", "alien", "lizard"]
 
 // global event listeners
 addEventListener('load', goToStartView)
@@ -60,35 +58,39 @@ function goToStartView() {
 }
 
 function startClassicGame() {
+  resetButton.classList.remove('fade')
+  changeButton.classList.remove('fade')
   middleHTMLContainer.classList.remove('disable')
   resetButton.disabled = false
   changeButton.disabled = false
   winnerText.innerText = ""
   middleDialogueBox.innerText = "Choose your fighter!"
   draw.classList.add('hidden')
+  spicyButton.classList.add('hidden')
+  classicButton.classList.add('hidden')
   changeButton.classList.remove('hidden')
   resetButton.classList.remove('hidden')
-  classicButton.classList.add('hidden')
-  spicyButton.classList.add('hidden')
   classicRock.classList.remove('hidden')
   classicPaper.classList.remove('hidden')
   classicScissors.classList.remove('hidden')
-  classicRock.addEventListener('click', newGame.player.takeTurn)
-  classicPaper.addEventListener('click', newGame.player.takeTurn)
-  classicScissors.addEventListener('click', newGame.player.takeTurn)
+  classicRock.addEventListener('click', newGame.player.takeTurnClassic)
+  classicPaper.addEventListener('click', newGame.player.takeTurnClassic)
+  classicScissors.addEventListener('click', newGame.player.takeTurnClassic)
 }
 
 function startSpicyGame() {
+  resetButton.classList.remove('fade')
+  changeButton.classList.remove('fade')
   middleHTMLContainer.classList.remove('disable')
   resetButton.disabled = false
   changeButton.disabled = false
   winnerText.innerText = ""
   middleDialogueBox.innerText = "Choose your fighter!"
   draw.classList.add('hidden')
-  changeButton.classList.remove('hidden')
-  resetButton.classList.remove('hidden')
   classicButton.classList.add('hidden')
   spicyButton.classList.add('hidden')
+  changeButton.classList.remove('hidden')
+  resetButton.classList.remove('hidden')
   spicyRock.classList.remove('hidden')
   spicyPaper.classList.remove('hidden')
   spicyScissors.classList.remove('hidden')
@@ -101,16 +103,100 @@ function startSpicyGame() {
   spicyAlien.addEventListener('click', newGame.player.takeTurnSpicy)
 }
 
-function disableButtons(gameType) {
-  if (gameType === "classic") {
+function disableButtons() {
+  if (newGame.currentGameType === "classic") {
     middleHTMLContainer.classList.add('disable')
     resetButton.disabled = true
     changeButton.disabled = true
+    resetButton.classList.add('fade')
+    changeButton.classList.add('fade')
     setTimeout(startClassicGame, 2200)
-  } else if (gameType === "spicy") {
+  } else if (newGame.currentGameType === "spicy") {
     middleHTMLContainer.classList.add('disable')
     resetButton.disabled = true
     changeButton.disabled = true
+    resetButton.classList.add('fade')
+    changeButton.classList.add('fade')
     setTimeout(startSpicyGame, 2200)
+  }
+}
+
+function updateDOMResults() {
+  middleDialogueBox.innerText = newGame.currentGameOutcome
+  humanScore.innerText = newGame.player.wins
+  computerScore.innerText = newGame.computer.wins
+  winnerText.innerText = `Player: ${newGame.player.currentChoice} | Computer: ${newGame.computer.currentChoice}`
+  disableButtons()
+}
+
+function displayPlayerChoiceClassic() {
+  if (newGame.player.currentChoice === "rock") {
+    classicPaper.classList.add('hidden')
+    classicScissors.classList.add('hidden')
+  } else if (newGame.player.currentChoice === "paper") {
+    classicRock.classList.add('hidden')
+    classicScissors.classList.add('hidden')
+  } else if (newGame.player.currentChoice === "scissors") {
+    classicRock.classList.add('hidden')
+    classicPaper.classList.add('hidden')
+  }
+}
+
+function displayComputerChoiceClassic() {
+  if (newGame.computer.currentChoice === "rock") {
+    classicRock.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "paper") {
+    classicPaper.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "scissors") {
+    classicScissors.classList.remove('hidden')
+  }
+}
+
+function displayDraw() {
+  if (newGame.currentGameOutcome === "It's a draw!") {
+    draw.classList.remove('hidden')
+  }
+}
+
+function displayPlayerChoiceSpicy() {
+  if (newGame.player.currentChoice === "rock") {
+    spicyPaper.classList.add('hidden')
+    spicyScissors.classList.add('hidden')
+    spicyLizard.classList.add('hidden')
+    spicyAlien.classList.add('hidden')
+  } else if (newGame.player.currentChoice === "paper") {
+    spicyRock.classList.add('hidden')
+    spicyScissors.classList.add('hidden')
+    spicyLizard.classList.add('hidden')
+    spicyAlien.classList.add('hidden')
+  } else if (newGame.player.currentChoice === "scissors") {
+    spicyRock.classList.add('hidden')
+    spicyPaper.classList.add('hidden')
+    spicyLizard.classList.add('hidden')
+    spicyAlien.classList.add('hidden')
+  } else if (newGame.player.currentChoice === "alien") {
+    spicyRock.classList.add('hidden')
+    spicyPaper.classList.add('hidden')
+    spicyLizard.classList.add('hidden')
+    spicyScissors.classList.add('hidden')
+  } else if (newGame.player.currentChoice === "lizard") {
+    spicyRock.classList.add('hidden')
+    spicyPaper.classList.add('hidden')
+    spicyAlien.classList.add('hidden')
+    spicyScissors.classList.add('hidden')
+  }
+}
+
+function displayComputerChoiceSpicy() {
+  if (newGame.computer.currentChoice === "rock") {
+    spicyRock.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "paper") {
+    spicyPaper.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "scissors") {
+    spicyScissors.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "lizard") {
+    spicyLizard.classList.remove('hidden')
+  } else if (newGame.computer.currentChoice === "alien") {
+    spicyAlien.classList.remove("hidden")
   }
 }
